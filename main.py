@@ -10,7 +10,7 @@ distance_to_angle_map = {}
 #This calculates the shooting angle required to reach the goal
 def calculate_angle(x0):
     yf = 2.05
-    xf = 0
+    xf = 0 # uneccessary for this calculation
     y0 = 0.0 # This is the height of the arm from the ground
     vi = 10
     l = 0.635
