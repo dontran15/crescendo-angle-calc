@@ -39,7 +39,9 @@ def calculate_angle(x0):
         # test_height = math.tan(math.radians(140-initial_angle))*(-l*math.cos(math.radians(initial_angle))-x0) - 1/2*g*((-l*math.cos(math.radians(initial_angle))-x0)/(vi*math.cos(math.radians(140-initial_angle))))**2 + l*math.sin(initial_angle)
 
         # Trial 4 - Don
-        test_height = math.tan(math.radians(140-initial_angle))*(l*math.cos(math.radians(initial_angle))+x0) - 1/2 * g * ((x0+l*math.cos(math.radians(initial_angle)))/(vi*math.cos(math.radians(140-initial_angle))))**2 + l * math.sin(math.radians(initial_angle)) + y0
+        vx = math.cos(math.radians(140-initial_angle)) * vi
+        t = ( x0 + l*math.cos(math.radians(initial_angle)) ) / vx
+        test_height = math.sin(math.radians(140-initial_angle)) * vi * t - g/2 * (t**2) + l * math.sin(math.radians(initial_angle))
 
         if (moe >= abs(yf - test_height)):
             print("distance: " + str(x0) + ", initial angle: " + str(initial_angle) + ", test height: " + str(test_height))
