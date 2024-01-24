@@ -18,8 +18,8 @@ def calculate_angle(x0):
     
     initial_angle = 180.0
     range_from_initial = 180.0 # we test from 180 degrees to 0 degrees
-    increment = 0.0001 
-    moe = 0.001
+    increment = 0.01
+    moe = 0.01
 
     for i in range(int(range_from_initial/increment)):
         # Trial 3 - Bailey
