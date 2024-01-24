@@ -16,10 +16,10 @@ def calculate_angle(x0):
     l = 0.635
     g = 9.8
     
-    initial_angle = 180.0
-    range_from_initial = 180.0 # we test from 180 degrees to 0 degrees
+    initial_angle = 140.0
+    range_from_initial = 140.0 # we test from 180 degrees to 0 degrees
     increment = 0.01
-    moe = 0.01
+    moe = 0.001
 
     for i in range(int(range_from_initial/increment)):
         # Trial 3 - Bailey
@@ -44,10 +44,12 @@ def calculate_angle(x0):
         test_height = math.sin(math.radians(140-initial_angle)) * vi * t - g/2 * (t**2) + l * math.sin(math.radians(initial_angle))
 
         if (moe >= abs(yf - test_height)):
-            print("distance: " + str(x0) + ", initial angle: " + str(initial_angle) + ", test height: " + str(test_height))
+            # print("distance: " + str(x0) + ", initial angle: " + str(initial_angle) + ", test height: " + str(test_height))
             return initial_angle
 
         initial_angle -= increment
+
+    print("sad!")
 
     return -100000
 
@@ -65,7 +67,7 @@ def insert_to_hashmap():
         d_current += increment
 
 insert_to_hashmap()
-print("angle at 0 m distance: " + str(calculate_angle(0)))
+# print("angle at 0 m distance: " + str(calculate_angle(0)))
 
 # Specify the file path where you want to save the JSON file
 json_file_path = "angles.json"
