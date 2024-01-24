@@ -21,7 +21,7 @@ public class Main {
         String csv = "";
 
         // if angle stops increasing, then shooting downwards (STOP)
-        for (double i = min_distance; current_angle > previous_angle; i += dist_increment) {
+        for (double i = min_distance; current_angle > previous_angle; i = round(i + dist_increment)) {
             double angle = calculateAngle(i);
             csv += i + "," + angle + "\n";
             
@@ -37,7 +37,7 @@ public class Main {
 
     public static double calculateAngle(double x_dist) throws Exception {
          // if angles decrease then it is shooting downwards (STOP)
-         for (double i = initial_angle; i >= final_angle; i -= angle_increment) {
+         for (double i = initial_angle; i >= final_angle; i = round(i - angle_increment)) {
                double initial_angle_rad = Math.toRadians(i);
                double shoot_angle_rad = Math.toRadians(140-i);
                
@@ -51,5 +51,10 @@ public class Main {
          }
 
          throw new Exception("No angle for distance " + x_dist);
+    }
+    
+    
+    public static double round(double num) {
+        return Math.round(num * 100) / 100.0;
     }
 }
